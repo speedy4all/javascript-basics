@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>ReactJS Sesiunea 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <header class="header" style="background-color: aqua; margin-top: 20px">
+      <h4>Pentalog ReactJS Stagiu</h4>
+    </header>
+
+    <footer>
+      <div>Q&A</div>
+    </footer>
+
+    <script>
+
+        function sayHello(a, b, c) {
+          console.log("Hello ", this, ' ', a, b, c, ' arguments ', arguments);
+        }
+        sayHello.apply({}, [1, 2, 3, 4]);
+        sayHello.call({}, 1, 2, 3, 4);
+        const newSayHello = sayHello.bind({bind: true});
+        
+        newSayHello(1, 2, 3, 4);
+
+      const sayHelloFromArrow = (a, b, c, ...args) => {
+        console.log("Hello from arrow ", this, a, b, c, args);
+      };
+
+      sayHelloFromArrow.apply({}, [1, 2, 3, 4, 5, 6]);
+      sayHelloFromArrow.call({}, 1, 2, 3, 4, 5, 6);
+
+      [1, 2, 3, 4].map((a, index) => console.log(a, index));
+
+
+
+      sayHelloFromArrow();
+
+      {
+        const b = "const b";
+        const user = {
+          name: "Bogdan",
+          age: 40,
+        };
+        user.name = "Bogdan B";
+        user.fullName = "Bogdan Buescu";
+
+        const displayFullName = (user) => {
+          console.log(user.fullName);
+        };
+
+        let c = "let init";
+        var a = "var a"; // nu se foloseste
+        {
+            console.log(newObj);
+            displayFullName(user);
+        }
+      }
+
+      var main = document.createElement("main");
+      main.className = "main";
+      var section = document.createElement("section");
+      section.className = "section";
+      var mainDiv = document.createElement("div");
+      mainDiv.style = "color: red";
+      mainDiv.innerText = "Invatam Javascript";
+
+      var button = document.createElement("button");
+      button.innerText = "click me";
+
+      button.addEventListener("click", () => {
+        console.log("I was clicked");
+      });
+
+      mainDiv.appendChild(button);
+
+      section.appendChild(mainDiv);
+
+      main.appendChild(section);
+
+      document.body.appendChild(main);
+    </script>
+  </body>
+</html>
