@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>ReactJS Sesiunea 1</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="index.css" />
-  </head>
-  <body>
-    <header class="header">
-      <img class="logo-mini" src="pentalog-logo-mini.svg" alt="Pentalog" />
-      <h4 class="title">Pentalog Training Program</h4>
-    </header>
+import React from "react";
+import './styles.css';
+
+export default function Main() {
+  return (
     <main>
       <section>
         <div class="list-header">
@@ -20,6 +11,7 @@
         <div class="list-container">
           <div class="video-container">
             <h4>React Workout: Reducers with Cassidy Williams</h4>
+            <small>Session 1</small>
             <iframe
               width="560"
               height="315"
@@ -35,6 +27,7 @@
               React Workout: Intro to useState and useEffect with Cassidy
               Williams
             </h4>
+            <small>Session 2</small>
             <iframe
               width="560"
               height="315"
@@ -47,6 +40,7 @@
           </div>
           <div class="video-container">
             <h4>Using Composition in React to Avoid "Prop Drilling"</h4>
+            <small>Session 3</small>
             <iframe
               width="560"
               height="315"
@@ -59,6 +53,20 @@
           </div>
           <div class="video-container">
             <h4>Navigation Blocking in history v5</h4>
+            <small>Session 4</small>
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/kt1EwqBa7aA"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="video-container">
+            <h4>Navigation Blocking in history v5</h4>
+            <small>Session 4 copy</small>
             <iframe
               width="560"
               height="315"
@@ -72,18 +80,5 @@
         </div>
       </section>
     </main>
-    <footer>
-      <div>Pentastagiu Aprilie - Iunie 2021 ReactJS Track</div>
-      <small>#working@penta</small>
-      <small>&copy; Pentalog 2021</small>
-    </footer>
-
-    <script>
-      window.onload = function() {
-        if(!localStorage.getItem('token')) {
-          this.location.replace('login.html');
-        }
-      }
-    </script>
-  </body>
-</html>
+  );
+}
