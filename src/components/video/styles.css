@@ -1,0 +1,10 @@
+.video-container {
+    color: gainsboro;
+    flex: 0.33;
+    padding: 20px;
+    margin: 20px;
+    background-color: rgb(238, 88, 30);
+    box-shadow: 9px 9px 8px 0px #00000036;
+    border-radius: 5%;
+  }
+  
