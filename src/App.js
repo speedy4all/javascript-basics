@@ -1,10 +1,14 @@
 import './App.css';
 import Home from "./containers/Home";
 
+import { PostProvider } from './contexts/PostsContext'
+
 function App() {
   return (
     <div className="App">
-      <Home />
+        <PostProvider>
+            <Home />
+        </PostProvider>
     </div>
   );
 }

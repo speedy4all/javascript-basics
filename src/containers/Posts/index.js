@@ -1,38 +1,23 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, {  useEffect } from "react";
 
 import PostsView from "../../components/PostsView";
 import SearchView from "../../components/SearchView";
 
-export default function Posts() {
-  const [posts, setPosts] = useState([]);
-  const [searchParam, setSearchParam] = useState("");
+import { usePosts } from '../../contexts/PostsContext'
 
-  const fetchPosts = () =>
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then((response) => response.json())
-      .then((data) => setPosts(data));
+export default function Posts() {
+  const { posts, filteredPosts, searchParam, fetchPosts, setSearchParam } = usePosts();
 
   useEffect(() => {
-    if (!searchParam) {
       fetchPosts();
-    }
-  }, [searchParam]);
-
-    const filteredPosts = useMemo(() => {
-      if (!searchParam) {
-        return posts;
-      }
-      return posts.filter(({ body }) => body.includes(searchParam));
-    }, [searchParam, posts]);
-
-//   const filteredPosts = !searchParam
-//     ? posts
-//     : posts.filter(({ body }) => body.includes(searchParam));
+  }, []);
 
   return (
     <>
       <SearchView search={searchParam} setSearch={setSearchParam} />
       <PostsView posts={filteredPosts} />
+      <hr />
+      <PostsView posts={posts} />
     </>
   );
 }
