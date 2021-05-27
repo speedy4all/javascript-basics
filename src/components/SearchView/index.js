@@ -10,7 +10,6 @@ export default function SearchView({ search, setSearch }) {
   }, []);
 
   useEffect(() => {
-    console.log("render SearchView");
   }, [search, setSearch]);
 
   const onClick = useCallback(() => setSearch(""), [setSearch]);
