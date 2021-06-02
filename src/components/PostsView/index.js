@@ -10,7 +10,7 @@ export default function PostsView({ posts }) {
   return (
     <div style={{ padding: 16 }}>
       {posts.map((post) => (
-        <PostView key={post.id} {...post} />
+        <PostView key={post.id} {...post} newData={false} />
       ))}
     </div>
   );
