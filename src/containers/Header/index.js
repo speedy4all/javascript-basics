@@ -1,7 +1,8 @@
 import React from "react";
 import appRoutes from "../../routes";
+import {Link} from "react-router-dom";
 
-export default function Header({ navigateTo, userPermissions }) {
+export default function Header({ userPermissions }) {
   return (
     <header
       style={{
@@ -23,9 +24,7 @@ export default function Header({ navigateTo, userPermissions }) {
             ) || permissions.length === 0
         )
         .map(({ path, title }) => (
-          <button key={path} onClick={navigateTo({ path, args: null })}>
-            {title}
-          </button>
+            <Link to={path}>{title}</Link>
         ))}
     </header>
   );

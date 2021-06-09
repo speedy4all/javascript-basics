@@ -5,27 +5,30 @@ import Todos from "./containers/Todos";
 import { PostProvider } from "./contexts/PostsContext";
 
 export const ALBUM_ROUTE = "/albums";
-export const SINGLE_POST = "/posts/:id";
+export const SINGLE_POST = "/posts/:idPost";
 
 const appRoutes = [
   {
     path: ALBUM_ROUTE,
-    title: "Albums list",
+    title: "Albums",
     noHeader: false,
+    exact: true,
     permissions: ["READ_ALBUMS", "ADMIN"],
-    render: () => <Albums />,
+    render: (props) => <Albums {...props}/>,
   },
   {
     path: "/todos",
-    title: "Todos list",
+    title: "Todos",
     noHeader: false,
+    exact: true,
     permissions: ["READ_TODOS", "ADMIN"],
-    render: () => <Todos />,
+    render: (props) => <Todos  {...props}/>,
   },
   {
     path: "/posts",
-    title: "Posts list",
+    title: "Posts",
     noHeader: false,
+    exact: true,
     permissions: ["READ_POSTS", "ADMIN"],
     render: (props) => (
       <PostProvider>
@@ -35,8 +38,9 @@ const appRoutes = [
   },
   {
     path: SINGLE_POST,
-    title: "Post view",
+    title: "Post",
     noHeader: true,
+    exact: true,
     permissions: ["READ_POSTS", "ADMIN"],
     render: (props) => <PostView {...props} newData />,
   },
@@ -44,6 +48,7 @@ const appRoutes = [
     path: "",
     title: "Dashboard",
     permissions: [],
+    exact: true,
     render: () => "Dashboard",
   },
 ];

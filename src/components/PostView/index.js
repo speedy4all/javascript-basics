@@ -1,44 +1,41 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { NavigationContext } from "../../containers/Home";
-import { SINGLE_POST } from "../../routes";
+import {Link, useLocation, useParams} from "react-router-dom";
 
-export default function PostView({ id, title, body, userId, newData = false }) {
-  const { navigateTo } = useContext(NavigationContext);
+export default function PostView({ id, title, body, newData = false }) {
+  let location = useLocation();
+  let params = useParams();
+  const {state} =location;
 
   const [newPost, setNewPost] = useState(null);
 
   const fetchNewData = () =>
-    fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+    fetch(`https://jsonplaceholder.typicode.com/posts/${params?.idPost}`)
       .then((response) => response.json())
       .then((data) => setNewPost(data));
 
   useEffect(() => {
-    if (newData && !newPost) {
+    if(params?.idPost) {
       fetchNewData();
     }
-  }, [newData, newPost]);
+  }, [state?.title]);
+
 
   return (
     <div style={{ textAlign: "left" }}>
       {!newData ? (
         <>
-          <button
-            onClick={navigateTo({
-              path: SINGLE_POST,
-              args: { id, title, body },
-            })}
-          >
+          <Link to={{pathname: `/posts/${id}`, state: {title, body, id}}}>
             Show details
-          </button>
+          </Link>
           <h4>Title: {title}</h4>
           <p>Content: {body}</p>
         </>
       ) : (
         <>
           <h3>New post details</h3>
-          <h4>Title: {newPost?.title}</h4>
-          <p>Content: {newPost?.body}</p>
+          <h4>Title: {state?.title || newPost?.title}</h4>
+          <p>Content: {state?.body || newPost?.body}</p>
         </>
       )}
     </div>
