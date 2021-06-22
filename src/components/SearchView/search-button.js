@@ -1,9 +1,10 @@
 import React, { memo } from "react";
+import { Button } from '@material-ui/core';
 
 function SearchButton({ onClick }) {
   console.log('render SearchButton');
 
-  return <button onClick={onClick}>Clear</button>;
+  return <Button color="primary" onClick={onClick}>Clear</Button>;
 }
 
 SearchButton.propTypes = {};

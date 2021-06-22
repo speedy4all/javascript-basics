@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import {Link, useLocation, useParams} from "react-router-dom";
+import CardCustom from "../CardCustom";
 
 export default function PostView({ id, title, body, newData = false }) {
   let location = useLocation();
@@ -22,20 +23,14 @@ export default function PostView({ id, title, body, newData = false }) {
 
 
   return (
-    <div style={{ textAlign: "left" }}>
+    <div>
       {!newData ? (
         <>
-          <Link to={{pathname: `/posts/${id}`, state: {title, body, id}}}>
-            Show details
-          </Link>
-          <h4>Title: {title}</h4>
-          <p>Content: {body}</p>
+          <CardCustom title={title} body={body} id={id}/>
         </>
       ) : (
         <>
-          <h3>New post details</h3>
-          <h4>Title: {state?.title || newPost?.title}</h4>
-          <p>Content: {state?.body || newPost?.body}</p>
+          <CardCustom title={state?.title || newPost?.title} body={state?.body || newPost?.body}/>
         </>
       )}
     </div>

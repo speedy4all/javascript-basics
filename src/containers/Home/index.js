@@ -1,5 +1,6 @@
 import React, { createContext, useState } from "react";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
+import {Container} from '@material-ui/core';
 import appRoutes from "../../routes";
 import Header from "../Header";
 
@@ -15,9 +16,11 @@ function Home({ permissions }) {
       <BrowserRouter>
           <Header userPermissions={permissions} />
         <Switch>
+            <Container fixed>
           {appRoutes.map(route => (
               <Route key={route.title} path={route.path} render={route.render} exact={route.exact}/>
           ))}
+            </Container>
         </Switch>
       </BrowserRouter>
     </NavigationContext.Provider>

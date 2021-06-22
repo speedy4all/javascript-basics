@@ -13,7 +13,7 @@ export default function Albums() {
   }, []);
 
   return (
-    <div style={{ textAlign: "left", padding: 50 }}>
+    <div>
       <h4>Albums</h4>
       {albums.map(({ id, title }) => (
         <div key={id}>{`Title: ${title}`}</div>
