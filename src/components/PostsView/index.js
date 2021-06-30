@@ -4,7 +4,7 @@ import PostView from "../PostView";
 
 export default function PostsView({ posts }) {
   useEffect(() => {
-    console.log("render PostsView list");
+    // console.log("render PostsView list");
   }, [posts]);
 
   return (

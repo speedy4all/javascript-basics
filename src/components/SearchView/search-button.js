@@ -1,9 +1,7 @@
 import React, { memo } from "react";
 
 function SearchButton({ onClick }) {
-  console.log('render SearchButton');
-
-  return <button onClick={onClick}>Clear</button>;
+  return <button onClick={onClick} data-testid="clear-button">Clear</button>;
 }
 
 SearchButton.propTypes = {};

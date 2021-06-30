@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchButton component should render the correct snapshot 1`] = `
+<button
+  data-testid="clear-button"
+  onClick={[MockFunction]}
+>
+  Clear
+</button>
+`;

@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search input should should render the correct snapshot 1`] = `
+<div
+  data-testid="searchView-element"
+>
+  <label
+    htmlFor="searchInput"
+  >
+    Search post
+  </label>
+  <input
+    data-testid="searchView-input"
+    id="searchInput"
+    onChange={[Function]}
+    value="new"
+  />
+  <button
+    data-testid="clear-button"
+    onClick={[Function]}
+  >
+    Clear
+  </button>
+</div>
+`;

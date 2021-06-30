@@ -6,19 +6,20 @@ export default function SearchView({ search, setSearch }) {
   const searchRef = useRef(null);
 
   useEffect(() => {
-    searchRef.current.focus();
+    searchRef?.current?.focus();
   }, []);
 
   useEffect(() => {
-    console.log("render SearchView");
+    // console.log("render SearchView");
   }, [search, setSearch]);
 
   const onClick = useCallback(() => setSearch(""), [setSearch]);
 
   return (
-    <div>
+    <div data-testid="searchView-element" >
       <label htmlFor="searchInput">Search post</label>
       <input
+        data-testid="searchView-input"
         ref={searchRef}
         id="searchInput"
         onChange={({ target: { value } }) => setSearch(value)}
